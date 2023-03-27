@@ -27,7 +27,7 @@ class Building extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          //image mengambil gambar dari internet
+          //image mengambil gambar dari internet dengan menggunakan(NetworkImage)
           const Image(
             image: NetworkImage(
               "https://picsum.photos/536/354",
