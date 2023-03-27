@@ -8,7 +8,7 @@ class Building extends StatelessWidget {
   Widget build(BuildContext context) {
     //kanfass Scaffold
     return Scaffold(
-      //appbar berisi {icon,Text}
+      //appbar berisi {icon,Text,iconBootom}
       appBar: AppBar(
         title: Row(
           children: const [
@@ -17,6 +17,7 @@ class Building extends StatelessWidget {
             Text("Flutter layout Demo"),
           ],
         ),
+        //bisa diclick
         actions: [
           IconButton(
             onPressed: () {},
