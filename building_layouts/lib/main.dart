@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+//memanggil folder dan class
 import './widgets/layout.dart';
 
 void main(List<String> args) {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Building(),
+      home: Building(),//nama class
     );
   }
 }
