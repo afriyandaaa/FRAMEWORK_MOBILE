@@ -50,6 +50,7 @@ class Building extends StatelessWidget {
                           "Oeschine Lake Campround",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            fontSize: 20,
                           ),
                         ),
                       ),
@@ -67,10 +68,17 @@ class Building extends StatelessWidget {
                   ),
                 ),
                 Icon(
-                  Icons.star,
+                  Icons.favorite,
                   color: Colors.red[900],
                 ),
-                const Text("9.999"),
+                const SizedBox(width: 10),
+                const Text(
+                  "9.999",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ],
             ),
           ),
@@ -144,7 +152,9 @@ class Building extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(32),
             child: const Text(
-                "Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities  enjoyed here include rowing, and riding the summer toboggan run."),
+              "Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situated 1,578 meters above sea level, it is one of the larger Alpine Lakes. A gondola ride from Kandersteg, followed by a half-hour walk through pastures and pine forest, leads you to the lake, which warms to 20 degrees Celsius in the summer. Activities  enjoyed here include rowing, and riding the summer toboggan run.",
+              style: TextStyle(fontSize: 17),
+            ),
           ),
         ],
       ),
