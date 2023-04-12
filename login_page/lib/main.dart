@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'HomePage.dart';
 
 void main() => runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Login Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: LoginPage(),
     );
@@ -80,29 +81,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 Container(
-                  height: 200,
-                  width: 300,
+                  height: 350,
+                  width: 400,
                   transformAlignment: Alignment.center,
-                  child: Row(
-                    children: const [
-                      FlutterLogo(
-                        size: 120,
-                      ),
-                      Text(
-                        'Flutter',
-                        style: TextStyle(
-                          fontFamily: AutofillHints.jobTitle,
-                          fontSize: 50,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: LottieBuilder.asset("assets/login.json"),
                 ),
                 SizedBox(height: 30),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
+                  children: [
                     TextField(
                       controller: _usernameController,
                       keyboardType: TextInputType.emailAddress,
@@ -140,59 +126,66 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 15),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Forgot Password',
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Text(
+                          'Forgot Password?',
                           style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 20,
+                            color: Color.fromARGB(255, 16, 0, 235),
+                            fontSize: 15,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
-                    ElevatedButton(
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                            fontSize: 23, fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () {
-                        if (_isLoginValid()) {
-                          _navigateToMainMenu();
-                        } else {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Text('Login Failed'),
-                              content: Text('Invalid username or password'),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text('OK'),
-                                  onPressed: () => Navigator.of(context).pop(),
-                                ),
-                              ],
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 90, // ubah ukuran lebar box login di sini
+                          height: 35, // ubah ukuran tinggi box login di sini
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                fontSize: 23,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          );
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          vertical: 20,
+                            onPressed: () {
+                              if (_isLoginValid()) {
+                                _navigateToMainMenu();
+                              } else {
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    shape: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    title: Text('Login Failed'),
+                                    content:
+                                        Text('Invalid username or password'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('OK'),
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }
+                            },
+                          ),
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                          side: const BorderSide(width: 3, color: Colors.grey),
-                        ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
-                SizedBox(height: 130),
+                SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

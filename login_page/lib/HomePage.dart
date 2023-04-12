@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:lottie/lottie.dart';
 import 'main.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.logout),
@@ -91,15 +92,16 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
             child: Container(
-              padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+              padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+              color: Colors.grey[300],
               child: Card(
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 1,
+                      flex: 2,
                       child: Image.asset(
                         places[index]['image'],
-                        height: 100,
+                        height: 120,
                         fit: BoxFit.cover,
                       ),
                     ),
