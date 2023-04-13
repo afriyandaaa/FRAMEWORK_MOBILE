@@ -141,47 +141,45 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 90, // ubah ukuran lebar box login di sini
-                          height: 35, // ubah ukuran tinggi box login di sini
-                          child: ElevatedButton(
-                            child: const Text(
-                              'Login',
-                              style: TextStyle(
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            onPressed: () {
-                              if (_isLoginValid()) {
-                                _navigateToMainMenu();
-                              } else {
-                                showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                    shape: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(25),
-                                    ),
-                                    title: Text('Login Failed'),
-                                    content:
-                                        Text('Invalid username or password'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        child: Text('OK'),
-                                        onPressed: () =>
-                                            Navigator.of(context).pop(),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              }
-                            },
+                    Container(
+                      transformAlignment: Alignment.center,
+                      height: 40,
+                      width: 120,
+                      child: ElevatedButton(
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ],
+                        onPressed: () {
+                          if (_isLoginValid()) {
+                            _navigateToMainMenu();
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                shape: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                                title: Text('Login Failed'),
+                                content: Text('Invalid username or password'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    child: Text('OK'),
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(17))),
+                      ),
                     ),
                   ],
                 ),
