@@ -12,6 +12,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Map<String, dynamic>> places = [
+    //data yang ingin dipanggil
     {
       'name': 'CANDI BOROBUDUR',
       'image': 'assets/borobudur.jpg',
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
     },
     // other places
   ];
+  //tombol logout jika ditekan 
   void _logout() {
     Navigator.pushReplacement(
       context,
@@ -128,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
+// yang menampilkan informasi lengkap mengenai tempat wisata yang dipilih oleh pengguna.
 class PlaceDetails extends StatelessWidget {
   final Map<String, dynamic> place;
 
