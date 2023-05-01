@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Login Page',
+          'LOGIN',
           style: TextStyle(fontSize: 25),
         ),
         centerTitle: true,
@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                             horizontal: 30, vertical: 20),
                         prefixIcon: const Icon(Icons.email),
                         labelText: "Email",
-                        hintText: "yourname@email.com",
+                        hintText: "username@email.com",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -154,8 +154,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         onPressed: () {
+                          //jika login berhasil valid maka akan lanjut ke menu home
                           if (_isLoginValid()) {
                             _navigateToMainMenu();
+                            //jika gagal maka akan beri tahu dengan showdialog
                           } else {
                             showDialog(
                               context: context,

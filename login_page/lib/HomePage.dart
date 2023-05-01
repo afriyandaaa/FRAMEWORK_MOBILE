@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+
 import 'main.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -11,8 +11,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //data tempat Wisata
   List<Map<String, dynamic>> places = [
-    //data yang ingin dipanggil
     {
       'name': 'CANDI BOROBUDUR',
       'image': 'assets/borobudur.jpg',
@@ -57,7 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
     },
     // other places
   ];
-  //tombol logout jika ditekan 
   void _logout() {
     Navigator.pushReplacement(
       context,
@@ -71,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        centerTitle: true,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.logout),
@@ -94,16 +92,15 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
             child: Container(
-              padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-              color: Colors.grey[300],
+              padding: EdgeInsets.only(top: 20, left: 10, right: 10),
               child: Card(
                 child: Row(
                   children: [
                     Expanded(
-                      flex: 2,
+                      flex: 1,
                       child: Image.asset(
                         places[index]['image'],
-                        height: 120,
+                        height: 100,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -130,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-// yang menampilkan informasi lengkap mengenai tempat wisata yang dipilih oleh pengguna.
+
 class PlaceDetails extends StatelessWidget {
   final Map<String, dynamic> place;
 
@@ -148,13 +145,25 @@ class PlaceDetails extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: Image.asset(
-                place['image'],
-                fit: BoxFit.cover,
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  place['image'],
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-            Expanded(
-              flex: 1,
+            SizedBox(height: 20),
+            Container(
               child: Padding(
                 padding: EdgeInsets.all(10),
                 child: Text(
